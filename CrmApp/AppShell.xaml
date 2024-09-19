@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell x:Class="CrmApp.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:CrmApp"
+       xmlns:pages="clr-namespace:CrmApp.Pages.Products"
+       Shell.FlyoutBehavior="Flyout"
+       Title="CRM - Sistema de Gestão">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Produtos"
+        ContentTemplate="{DataTemplate pages:ProductsPage}"
+        Route="products" />
+</Shell>

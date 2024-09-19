@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrmApp.Pages.Products.ProductPage"
+             Title="Cadastro de Produto">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10" Spacing="5" Orientation="Vertical">
+                <HorizontalStackLayout Spacing="5" Padding="5" HorizontalOptions="End">
+                    <Label Text="Manter a página aberta" VerticalOptions="Center"/>
+                    <CheckBox x:Name="CanExitPage" CheckedChanged="CanExitPage_CheckedChanged"/>
+                </HorizontalStackLayout>
+                <Label Text="Código" />
+                <Entry
+                   x:Name="Code"
+                   IsEnabled="False" 
+                   WidthRequest="550" 
+                   HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="Código externo" />
+                <Entry
+                    x:Name="ExternalCode"
+                    WidthRequest="550"
+                    HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="Nome" HorizontalOptions="FillAndExpand" />
+                <Entry
+                   x:Name="Name"
+                   Placeholder="Digite o Nome do produto" 
+                   WidthRequest="550"
+                   HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="Descrição" HorizontalOptions="FillAndExpand" />
+                <Editor 
+                    x:Name="Description" 
+                    Placeholder="Descreva o produto" 
+                    WidthRequest="550"
+                    HeightRequest="150"
+                    HorizontalOptions="StartAndExpand" />
+
+                <Label Text="Valor de compra" HorizontalOptions="FillAndExpand" />
+                <Entry 
+                    x:Name="OriginalCost"
+                    Placeholder="Descreva o valor de compra" 
+                    WidthRequest="550"
+                    HorizontalOptions="StartAndExpand" />
+
+                <Label Text="Valor de venda" HorizontalOptions="FillAndExpand" />
+                <Entry 
+                    x:Name="Price"
+                    Placeholder="Descreva o valor de venda" 
+                    WidthRequest="550"
+                    HorizontalOptions="StartAndExpand" />
+
+                <Label Text="Tipo de expiração" HorizontalOptions="FillAndExpand" />
+                <Picker
+                    x:Name="ExpirationPeriodType"                    
+                    HorizontalOptions="StartAndExpand"
+                    ItemsSource="{Binding _expirations}" 
+                    WidthRequest="550" />
+
+                <Label Text="Tempo de expiração" HorizontalOptions="FillAndExpand" />
+                <Entry 
+                    x:Name="ExperationTime"
+                    Keyboard="Numeric"
+                    Placeholder="Coloque o tempo de expiração" 
+                    WidthRequest="550"
+                    HorizontalOptions="StartAndExpand" />
+                
+                <Label Text="Estoque atual" HorizontalOptions="FillAndExpand" />
+                <Entry 
+                    x:Name="ActualQuantity"
+                    Placeholder="Descreva a quantidade atual" 
+                    WidthRequest="550"
+                    HorizontalOptions="StartAndExpand" />
+
+                <Label Text="Estoque de segurança" HorizontalOptions="FillAndExpand" />
+                <Entry 
+                    x:Name="SecurityQuantity"
+                    Placeholder="Descreva a quantidade de segurança do produto" 
+                    WidthRequest="550"
+                    HorizontalOptions="StartAndExpand" />
+
+                <Label Text="Estoque mínimo" HorizontalOptions="FillAndExpand" />
+                <Entry 
+                    x:Name="MinimalQuantity"
+                    Placeholder="Descreva a quantidade mínima do produto" 
+                    WidthRequest="550"
+                    HorizontalOptions="StartAndExpand" />
+
+                <Label Text="Data de Validade" HorizontalOptions="FillAndExpand" />
+                <DatePicker
+                    x:Name="ExpirationDate"
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="550" />
+
+                <Label Text="Data da última compra" HorizontalOptions="FillAndExpand" />
+                <DatePicker
+                    x:Name="LastTimeBuy" 
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="550" />
+
+                <HorizontalStackLayout VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Spacing="5">
+                    <Button Text="Cancelar"
+                        BackgroundColor="PaleVioletRed"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="EndAndExpand"
+                        Clicked="Cancel"/>
+                    <Button Text="Salvar"
+                        BackgroundColor="CadetBlue"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="EndAndExpand"
+                        Clicked="SaveProduct"/>
+
+                </HorizontalStackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

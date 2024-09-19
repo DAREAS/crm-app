@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrmApp.Pages.Products.ProductsPage"
+             Title="Produtos">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    <Button x:Name="AddProduct" ImageSource="plus.png" ToolTipProperties.Text="Adicionar Produto" Clicked="OnAddProductButtonClicked" Scale="0.5" BackgroundColor="White" />
+                </StackLayout>
+            </StackLayout>
+            <Grid Padding="10" ColumnDefinitions="*,*,*,*,*">
+                <Label Text="Nome" FontAttributes="Bold" />
+                <Label Text="Descrição" FontAttributes="Bold" Grid.Column="1" />
+                <Label Text="Preço" FontAttributes="Bold" Grid.Column="2" />
+                <Label Text="Custo" FontAttributes="Bold" Grid.Column="3" />
+                <Label Text="Ações" FontAttributes="Bold" HorizontalOptions="EndAndExpand" Grid.Column="4" />
+            </Grid>
+            
+            <CollectionView x:Name="ProductsView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5" ColumnDefinitions="*,*,*,*,*" BackgroundColor="Grey">
+                            <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Description}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="1" />
+                            <Label Text="{Binding Price, StringFormat='{0:c}'}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="2" />
+                            <Label Text="{Binding OriginalCost, StringFormat='{0:c}'}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" Grid.Column="3" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Grid.Column="4">
+                                <Button ImageSource="edit.png" Clicked="OnEditButtonClicked" CommandParameter="{Binding Id}" Scale="0.5" BackgroundColor="White"/>
+                                <Button ImageSource="delete.png" Clicked="OnDeleteButtonClicked" CommandParameter="{Binding Id}" Scale="0.5" BackgroundColor="White" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
