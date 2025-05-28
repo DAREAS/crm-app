@@ -1,0 +1,27 @@
+# Node
+node_modules/
+
+# Expo
+.expo/
+.expo-shared/
+
+# React Native
+android/app/build/
+ios/Pods/
+build/
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# Outros
+.env
+*.keystore
+*.p8
+*.jks
+*.p12
+*.key
+*.pem 
